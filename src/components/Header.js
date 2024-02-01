@@ -1,5 +1,10 @@
+import Nav from "@/components/Nav";
+
 export default function Header() {
     return (
-        <div>Header</div>
+        <header>
+            <h1>Fetch</h1>
+            <Nav />
+        </header>
     )
 }

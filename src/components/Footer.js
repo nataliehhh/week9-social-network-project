@@ -1,5 +1,5 @@
 export default function Header() {
     return (
-        <div>Footer</div>
+        <footer>Footer</footer>
     )
 }

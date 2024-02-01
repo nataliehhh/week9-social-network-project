@@ -1,5 +1,8 @@
-export default function UserCard() {
+export default function UserCard({profile}) {
     return (
-        <div></div>
+        <div className="profileCard">
+        <h2>{profile.user_name}</h2>
+        </div>   
     )
 }
+

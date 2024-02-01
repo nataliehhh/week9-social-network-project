@@ -1,7 +1,12 @@
-import Link from "next/link"
+import Link from "next/link";
+import { UserButton, auth } from "@clerk/nextjs";
 
-export default function Header() {
+export default async function Nav() {
+    const { userId } = auth();
     return (
-        <div></div>
+        <div>
+          {userId && <UserButton afterSignOutUrl="/" />}
+          {!userId && <Link href="/sign-in">Sign In</Link>}
+        </div>
     )
 }
