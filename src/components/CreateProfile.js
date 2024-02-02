@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs";
 import { sql } from "@vercel/postgres";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
@@ -7,6 +7,9 @@ import '@/css/createProfile.css';
 
 export default async function CreateProfile() {
     const { userId } = auth();
+    const user = currentUser();
+    const currentAvatarImage = user.imageUrl;
+
     const themeOptions = await sql`
     SELECT * FROM theme;
     `;
@@ -17,9 +20,8 @@ export default async function CreateProfile() {
 
         const user_name = formData.get("user_name");
         const theme_id = formData.get("theme");
-       
 
-        await sql`INSERT INTO profiles (user_name, theme_id, clerk_user_id) VALUES (${user_name}, ${theme_id}, ${userId})
+        await sql`INSERT INTO profiles (user_name, theme_id, clerk_user_id, image) VALUES (${user_name}, ${theme_id}, ${userId}, ${currentAvatarImage})
         `;
         revalidatePath("/");
         redirect("/");

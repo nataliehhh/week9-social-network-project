@@ -1,9 +1,12 @@
+import UserInfo from "@/components/UserInfo";
+
 export default function PostCard({post}) {
-    console.log("post prop", post)
+  
+
     return (
         <div className="postCard">
-            <h3>{post.user_name}</h3>
-            <p>{post.post}</p>
+            <UserInfo post={post} />
+            <p>{post?.post}</p>
         </div>
     )
 }

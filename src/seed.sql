@@ -91,4 +91,7 @@ VALUES
 ('Babez'),
 ('RAWR XD');
 
-
+CREATE TABLE IF NOT EXISTS follows (
+    follower_id INTEGER REFERENCES profiles(id) NOT NULL,
+    followee_id INTEGER REFERENCES profiles(id) NOT NULL
+)
