@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS posts (
 
 CREATE TABLE IF NOT EXISTS posts_comments (
     id SERIAL PRIMARY KEY,
-    reply VARCHAR(250) NOT NULL,
+    comment VARCHAR(250) NOT NULL,
     profile_id INTEGER REFERENCES profiles(id) NOT NULL,
     posts_id INTEGER REFERENCES posts(id) NOT NULL
 )

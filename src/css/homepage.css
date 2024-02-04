@@ -1,4 +1,92 @@
 .homepage {
     display: flex;
     flex-direction: row;
+    gap: 1rem;
 }
+
+.pageSidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    min-width: 400px;
+    max-width: 600px;
+}
+
+.postForm textarea {
+    height: 100px;
+  }
+
+.postFeed {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    max-width: 800px;
+}
+
+.postCard {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.userFeed {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.postCardButtonArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 1rem;
+}
+  
+.feedNav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profilePage {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 500;
+    height: 35px;
+    background-color: aquamarine;
+    max-width: 80px;
+  }
+

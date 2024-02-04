@@ -1,7 +1,6 @@
 import { ClerkProvider, auth } from "@clerk/nextjs";
 import { sql } from "@vercel/postgres";
 import { Inter } from "next/font/google";
-import { revalidatePath } from "next/cache";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";

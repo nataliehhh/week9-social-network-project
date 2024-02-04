@@ -1,7 +1,9 @@
 import { sql } from "@vercel/postgres";
-import PostFeedTab from "@/components/PostFeedTab";
+// import PostFeedTab from "@/components/PostFeedTab";
+import AllPosts from "@/components/AllPosts";
+import FollowedPosts from "@/components/FollowedPosts";
 
-export default async function PostFeed({profileId}) {
+export default async function PostFeed({profileId, showFollowedFeed }) {
     const postsRes = await sql`
     SELECT posts.id, posts.post, posts.profile_id, profiles.user_name, profiles.image
     FROM posts
@@ -14,22 +16,13 @@ export default async function PostFeed({profileId}) {
     const follows = followsRes.rows;
     console.log("follows", follows)
 
-    async function handleLike(post_id, profileId) {
-        "use server";
-        const likesNum = await sql`
-            SELECT * FROM posts_likes WHERE posts_id = ${post_id}`
-        const likesRes = await sql`
-            SELECT * FROM posts_likes WHERE posts_id = ${post_id} AND profile_id = ${profileId}`;
-        const liked = likedRes.rows.length === 0 ? false : true;
-        if (!liked) {
-            await sql`INSERT INTO posts_likes (profile_id, posts_id) VALUES (${profileId}, ${post_id})`
-        } else {
-            await sql`DELETE FROM posts_likes WHERE profile_id = ${profileId} AND post_id = ${post_id}`;
-        }
-        // return likesNum;
-    }
+    console.log("showFF post feed:", showFollowedFeed)
+
 
     return (
-            <PostFeedTab handleLike={handleLike} follows={follows} profileId={profileId} allPosts={allPosts} />
+        <div>
+            {!showFollowedFeed && <AllPosts profileId={profileId} allPosts={allPosts}/>}
+            {showFollowedFeed && <FollowedPosts follows={follows} profileId={profileId} allPosts={allPosts}/>}
+        </div>
     );
 }

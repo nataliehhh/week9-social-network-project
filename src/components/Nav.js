@@ -8,8 +8,6 @@ export default async function Nav({profileRes}) {
         <nav>
           <Link href="/">Home</Link>
           {userId && <UserButton afterSignOutUrl="/" />}
-          {!userId && <Link href="/sign-in">Sign In</Link>}
-          {/* {userId && <Link href={`/${profileRes.rows[0].id}`}>My Profile</Link>} */}
         </nav>
     )
 }

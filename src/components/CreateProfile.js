@@ -3,7 +3,6 @@ import { sql } from "@vercel/postgres";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import SaveButton from "@/components/SaveButton";
-import '@/css/createProfile.css';
 
 export default async function CreateProfile() {
     const { userId } = auth();
@@ -29,8 +28,8 @@ export default async function CreateProfile() {
 
     return (
         <div className="createProfile">
-            <h2>First time here? Choose a username and theme below!</h2>
             <form className="createProfileForm" action={handleCreateProfile}>
+                <h2>First time here? Choose a username and theme below!</h2>
                 <label htmlFor="user_name">Username</label>
                 <input id="user_name" name="user_name" type="text" required />
 

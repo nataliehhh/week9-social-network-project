@@ -1,9 +1,10 @@
 import Image from "next/image";
-import "@/css/profileAvatar.css";
 
-export default function ProfileAvatar({post}) {
+export default function ProfileAvatar({post, user}) {
 
     return (
+        <div>
+        {post &&
             <Image 
             src={post?.image}
             alt={post?.user_name}
@@ -11,5 +12,16 @@ export default function ProfileAvatar({post}) {
             height={100}
             className="profileAvatar"
             />
+        }
+        {user &&
+            <Image 
+            src={user?.image}
+            alt={user?.user_name}
+            width={100}
+            height={100}
+            className="profileAvatar"
+            />
+        }
+        </div>
     )
 }

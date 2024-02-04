@@ -1,7 +1,4 @@
-export default function LikeButton({posts_id, profileId, handleLike}) {
-    console.log("posts_id:", posts_id)
-    console.log("profileId:", profileId)
-
+export default function LikeButton({handleLike}) {
 
     return (
         <form action={handleLike}>
