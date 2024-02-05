@@ -3,7 +3,6 @@ import { revalidatePath } from "next/cache";
 import DeleteCommentButton from "./DeleteCommentButton";
 
 export default async function DeleteComment({ comment }) {
-    console.log("comment on deleteComment:", comment)
     async function handleDeleteComment() {
         "use server";
         await sql`

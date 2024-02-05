@@ -14,10 +14,6 @@ export default async function PostFeed({profileId, showFollowedFeed }) {
     const followsRes = await sql`
         SELECT * FROM follows WHERE follower_id = ${profileId}`;
     const follows = followsRes.rows;
-    console.log("follows", follows)
-
-    console.log("showFF post feed:", showFollowedFeed)
-
 
     return (
         <div>

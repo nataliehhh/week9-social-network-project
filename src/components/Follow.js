@@ -20,8 +20,6 @@ export default async function Follow({profilePage, currentProfileId}) {
         revalidatePath(`/${profilePage.id}`);
     }
 
-    console.log("follow status", followStatus )
-    console.log("profilePage.id", profilePage.id)
     
     return (
         <form action={handleFollow}>
